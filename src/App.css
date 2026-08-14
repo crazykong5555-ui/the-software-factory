@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Roboto+Condensed:wght@400;700;900&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Roboto Condensed", Arial, sans-serif;
+}
+
+/* =========================================
+   PAPEL PERIÓDICO
+========================================= */
+
+.comic-page {
+  min-height: 100vh;
+  padding: 35px 20px;
+
+  background-color: #d8d1bd;
+
+  background-image:
+    radial-gradient(
+      rgba(40, 35, 25, 0.22) 0.7px,
+      transparent 0.8px
+    ),
+    radial-gradient(
+      rgba(70, 60, 45, 0.12) 0.6px,
+      transparent 0.7px
+    ),
+    linear-gradient(
+      rgba(255, 255, 255, 0.16),
+      rgba(255, 255, 255, 0.16)
+    );
+
+  background-size:
+    7px 7px,
+    11px 11px,
+    100% 100%;
+
+  color: #151515;
+}
+
+/* Halftone comic dots */
+
+.comic-dots {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(#111 0.8px, transparent 0.8px);
+
+  background-size: 9px 9px;
+
+  opacity: 0.06;
+}
+
+/* =========================================
+   CONTENEDOR PRINCIPAL
+========================================= */
+
+.comic-container {
+  position: relative;
+
+  max-width: 1250px;
+  margin: auto;
+
+  padding: 28px;
+
+  background:
+    linear-gradient(
+      rgba(245, 239, 215, 0.88),
+      rgba(222, 214, 190, 0.90)
+    );
+
+  border: 5px solid #111;
+
+  box-shadow:
+    12px 12px 0 #111,
+    inset 0 0 40px rgba(0, 0, 0, 0.12);
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.comic-header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  border-bottom: 5px solid #111;
+
+  padding-bottom: 20px;
+}
+
+.header-title {
+  flex: 1;
+  text-align: center;
+}
+
+.header-title h1 {
+  margin: 0;
+
+  font-family: "Bangers", Impact, sans-serif;
+
+  font-size: clamp(3rem, 8vw, 7rem);
+
+  letter-spacing: 3px;
+
+  transform: rotate(-1deg);
+
+  text-shadow:
+    4px 4px 0 #fff,
+    7px 7px 0 #111;
+}
+
+.header-title p {
+  margin: 12px 0 0;
+
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+
+/* Comic explosion */
+
+.burst {
+  width: 170px;
+  height: 170px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  font-family: "Bangers", Impact, sans-serif;
+
+  font-size: 2rem;
+
+  background: #efefef;
+
+  border: 4px solid #111;
+
+  clip-path: polygon(
+    50% 0%,
+    61% 18%,
+    78% 7%,
+    77% 28%,
+    100% 30%,
+    82% 45%,
+    97% 61%,
+    76% 63%,
+    84% 86%,
+    63% 76%,
+    52% 100%,
+    42% 78%,
+    20% 92%,
+    26% 69%,
+    0% 62%,
+    21% 48%,
+    4% 31%,
+    28% 29%,
+    21% 7%,
+    40% 18%
+  );
+
+  filter: drop-shadow(6px 6px 0 #111);
+}
+
+/* =========================================
+   DIVISOR
+========================================= */
+
+.comic-divider {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+
+  padding: 12px;
+
+  font-size: 1.5rem;
+}
+
+/* =========================================
+   VIDEO PANEL
+========================================= */
+
+.video-panel {
+  background: #eee8d5;
+
+  border: 5px solid #111;
+
+  padding: 18px;
+
+  box-shadow:
+    8px 8px 0 #111;
+
+  margin-bottom: 35px;
+}
+
+.panel-caption {
+  display: inline-block;
+
+  background: #111;
+  color: white;
+
+  padding: 8px 18px;
+
+  font-family: "Bangers", Impact, sans-serif;
+
+  font-size: 1.6rem;
+
+  letter-spacing: 2px;
+
+  transform: rotate(-1deg);
+
+  margin-bottom: 15px;
+}
+
+/* Video rectangular */
+
+.video-wrapper {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  overflow: hidden;
+
+  border: 6px solid #111;
+
+  background: #000;
+
+  box-shadow:
+    inset 0 0 0 3px #777;
+}
+
+.video-wrapper iframe {
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  top: 0;
+  left: 0;
+
+  border: 0;
+}
+
+.video-caption {
+  margin-top: 15px;
+
+  padding: 15px;
+
+  border-top: 3px solid #111;
+
+  font-size: 1.1rem;
+
+  line-height: 1.5;
+}
+
+.video-caption strong {
+  font-family: "Bangers", Impact, sans-serif;
+
+  font-size: 2rem;
+
+  letter-spacing: 2px;
+}
+
+/* =========================================
+   COMIC CARDS
+========================================= */
+
+.comic-panels {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+.comic-card {
+  position: relative;
+
+  min-height: 220px;
+
+  padding: 28px 22px 22px;
+
+  background:
+    radial-gradient(
+      rgba(0, 0, 0, 0.12) 1px,
+      transparent 1px
+    );
+
+  background-size: 8px 8px;
+
+  border: 4px solid #111;
+
+  box-shadow: 7px 7px 0 #111;
+
+  transform: rotate(-1deg);
+}
+
+.comic-card:nth-child(2) {
+  transform: rotate(1deg);
+}
+
+.comic-card:nth-child(3) {
+  transform: rotate(-0.5deg);
+}
+
+.comic-card h2 {
+  margin-top: 10px;
+
+  font-family: "Bangers", Impact, sans-serif;
+
+  font-size: 3rem;
+
+  letter-spacing: 2px;
+}
+
+.comic-card p {
+  font-size: 1.1rem;
+
+  font-weight: 700;
+
+  line-height: 1.5;
+}
+
+.card-number {
+  position: absolute;
+
+  top: 8px;
+  right: 12px;
+
+  font-family: "Bangers", Impact, sans-serif;
+
+  font-size: 2rem;
+}
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.comic-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 35px;
+
+  padding-top: 15px;
+
+  border-top: 4px solid #111;
+
+  font-size: 0.85rem;
+
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 850px) {
+
+  .comic-header {
+    flex-direction: column;
+  }
+
+  .burst {
+    width: 130px;
+    height: 130px;
+    font-size: 1.6rem;
+  }
+
+  .comic-panels {
+    grid-template-columns: 1fr;
+  }
+
+  .comic-footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .comic-page {
+    padding: 10px;
+  }
+
+  .comic-container {
+    padding: 15px;
+    border-width: 3px;
+  }
+
+  .header-title h1 {
+    font-size: 3rem;
+  }
+
+  .video-panel {
+    padding: 10px;
+    border-width: 3px;
+  }
+}
